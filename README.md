@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# codestates-fe-advanced-course
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SEB 37기 김남현 입니다
 
-## Available Scripts
+## 🪴 배포 링크
 
-In the project directory, you can run:
+https://hokikie.github.io
 
-### `npm start`
+## 🪴 프로젝트 gif 
+- 게시글 리스트 및 게시물 수 필터 기능
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![게시글리스트및게시글수필터](https://user-images.githubusercontent.com/96006602/182943490-47332f6d-9a44-4253-a5de-0189a6df2bbe.gif)
+- 페이지 네이션
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![페이지네이션](https://user-images.githubusercontent.com/96006602/182943578-8e8095d7-66d7-40fa-9838-4ae52caeaca2.gif)
+- 상세 페이지 및 댓글로딩
 
-### `npm test`
+![상세게시글댓글가져옴](https://user-images.githubusercontent.com/96006602/182943611-b95b9fdf-8094-43e2-8ceb-ca155e7ee362.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🪴 프로젝트 실행 방법
+```
+cd codestates-fe-advanced-course
+npm i
+npm run start
+```
 
-### `npm run build`
+## 🪴 기술 스택
+- React
+- React Query
+- Tailwind
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🪴 구현 기능
+- 게시물 리스트
+   - 게시판 형태로 구성
+   - 페이지당 표시 게시물 수 필터 기능
+   - 게시물 페이지네이션
+- 게시물 상세 페이지
+   - 게시물 상세 내용
+   - 댓글 수, 댓글 나열
+- 커스텀 훅
+   - Api 요청 상태에 따라 로딩, 에러 상태를 제공 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🪴 구현 방법 혹은 구현하면서 어려웠던 점 
+- 데이터 패칭
+   - 각각의 컴포넌트에서 커스텀 훅을 통한 데이터 패칭을 하면서 ```props driling``` 을 피할 수 있었습니다. 
+- 레이아웃 및 디자인
+   - 컴포넌트 태그에서 스타일을 지정하는 ```tailwind``` 프레임워크를 사용하여 css를 빠르게 적용시킬 수 있었습니다.
+   - 다만, 양이 많지 않기 때문에 프로토타입까지 만드는 단계가 시간적으로 불필요하다고 생각했는데 오히려 시간을 더 허비하는 경험을 하여 다음에는 작은 구현에도 기획 단계에 충분히 공을 들일 생각입니다. 
+ 
+## 🪴 성능 최적화에 대해서 고민하고 개선한 방법
+이번 프로젝트를 하면서 가장 중점으로 둔 건 어떻게 하면 최소한의 데이터 전달과 데이터 요청으로 구현해낼 수 있을까 였습니다.
+가장 먼저 떠오른 건 무한스크롤이였으나 제공된 API 명세서에는 파라미터 단위로 요청을 지원하지 않았고, 전체의 데이터를 가져와야 했습니다.
+총 필요한 데이터 요청은 결국 게시글 리스트와 댓글리스트 이렇게 결국 2번을 요청하는 방법 밖에 떠오르지 않았습니다.
+그래서 데이터 전달이라도 최소한으로 해보자 고민한 방법은 첫번째 요청인 게시글 리스트의 데이터들을 상태로 따로 저장하지 않고 ```<LINK>```태그와 ```useLocation```을 사용해서 게시글을 클릭했을 때 데이터 전달과 동시에 상세 페이지로 이동하여 불필요하게 상태를 저장해서 하위 컴포넌트로 보내지 않고 사용할 수 있었습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🪴 추가 구현 사항에 대한 구현 방법과 설명
+- 페이지네이션 
+1. api 요청을 통해 전체 데이터 상태 저장
+2. 전체 게시글 갯수를 페이지당 게시글 수로 나눈 값을 배열로 저장
+3. 현재 페이지 상태에 클릭 이벤트를 통해 페이지 상태 지정
+4. slice 메서드를 통해 전체 게시글에서 현재 페이지에 맞는 부분 리스트 나열
+- UI 렌더링
+  - ```react query```에서 제공하는 커스텀 훅이 자동으로 요청 상태(loading, error 등)를 반환하여 매번 추가 로직을 따로 작성하지 않고 알맞은 UI 렌더링을 할 수 있게 하였습니다.
